@@ -1,0 +1,4 @@
+name: Belgian legendaries
+version: '1.0-SNAPSHOT'
+main: be.artex.belgianLegendaries.BelgianLegendaries
+api-version: '1.21'
