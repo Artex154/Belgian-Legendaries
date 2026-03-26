@@ -1,4 +1,7 @@
-name: Belgian legendaries
+name: Belgian-legendaries
 version: '1.0-SNAPSHOT'
-main: be.artex.belgianLegendaries.BelgianLegendaries
+main: be.artex.belgianLegendaries.Main
 api-version: '1.21'
+commands:
+  legendary:
+    usage: /legendary <legendary_id>
