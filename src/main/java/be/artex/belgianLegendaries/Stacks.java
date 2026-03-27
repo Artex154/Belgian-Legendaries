@@ -45,8 +45,8 @@ public class Stacks {
     public static ItemStack getRegalis() {
         ItemStack regalis = ItemStackBuilder.create(new ItemStack(Material.DIAMOND_HELMET))
                 .name(Component.text("Regalis", NamedTextColor.GOLD).decorate(TextDecoration.BOLD, TextDecoration.ITALIC))
-                .lore(Component.empty(), Component.text(" When worn, grants +0.3 attack speed and +2 hearts.", NamedTextColor.GRAY),
-                        Component.empty(), Component.text(" Quand équipé, il confère +0,3 vitesse d'attaque et +2 cœurs!        ", NamedTextColor.GRAY))
+                .lore(Component.empty(), Component.text(" When worn, grants +0.2 attack speed and +2 hearts.", NamedTextColor.GRAY),
+                        Component.empty(), Component.text(" Quand équipé, il confère +0,2 vitesse d'attaque et +2 cœurs!        ", NamedTextColor.GRAY))
                 .build();
 
         AttributeModifier attackSpeedModifier = new AttributeModifier(
@@ -70,5 +70,15 @@ public class Stacks {
                         .addModifier(Attribute.ARMOR_TOUGHNESS, toughnessModifier, EquipmentSlotGroup.HEAD));
 
         return regalis.clone();
+    }
+
+    public static ItemStack getExitium() {
+        ItemStack exitium = ItemStackBuilder.create(ItemStack.of(Material.DIAMOND_AXE))
+                .name(Component.text("Exitium", NamedTextColor.GOLD).decorate(TextDecoration.BOLD, TextDecoration.ITALIC))
+                .lore(Component.empty(), Component.text(" Right click while sneaking to gain resistance 3 for 5s.", NamedTextColor.GRAY), Component.text("  Cooldown:", NamedTextColor.GRAY).append(Component.text(" 60s", NamedTextColor.YELLOW)).append(Component.text(".", NamedTextColor.GRAY)),
+                        Component.empty(), Component.text(" Faites un clique droit en sneakant pour recevoir resistance 3 pour 5s.        ", NamedTextColor.GRAY), Component.text("  Cooldown:", NamedTextColor.GRAY).append(Component.text(" 60s", NamedTextColor.YELLOW)).append(Component.text(".", NamedTextColor.GRAY)))
+                .build();
+
+        return exitium.clone();
     }
 }

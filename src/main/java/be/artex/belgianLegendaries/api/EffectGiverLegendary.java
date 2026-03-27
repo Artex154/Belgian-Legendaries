@@ -7,39 +7,33 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.Vector;
+import org.bukkit.potion.PotionEffect;
 
 import java.util.Arrays;
 
-public class DashLegendary extends Legendary {
-    private static float dashHorizontal = 1.74f;
-    private static float dashVertical = 0.4f;
-    private static int cooldownTime = 20;
+public class EffectGiverLegendary extends Legendary {
+    private static PotionEffect effect;
+    private static int cooldownTime = 600;
 
     private static final Action[] allowedActions = {
             Action.RIGHT_CLICK_AIR, Action.RIGHT_CLICK_BLOCK
     };
 
-    private DashLegendary(String ID, ItemStack stack) {
+    private EffectGiverLegendary(String ID, ItemStack stack) {
         super(ID, stack);
     }
 
-    public static DashLegendary create(String ID, ItemStack stack) {
-        return new DashLegendary(ID, stack);
-    }
-
-    public static DashLegendary create(String ID, ItemStack stack, int cooldownTicks) {
+    public static EffectGiverLegendary create(String ID, ItemStack stack, PotionEffect potionEffect, int cooldownTicks) {
+        effect = potionEffect;
         cooldownTime = cooldownTicks;
 
-        return new DashLegendary(ID, stack);
+        return new EffectGiverLegendary(ID, stack);
     }
 
-    public static DashLegendary create(String ID, ItemStack stack, float dashHorizontalMultiplier, float dashVerticalMultiplier, int cooldownTicks) {
-        dashHorizontal = dashHorizontalMultiplier;
-        dashVertical = dashVerticalMultiplier;
-        cooldownTime = cooldownTicks;
+    public static EffectGiverLegendary create(String ID, ItemStack stack, PotionEffect potionEffect) {
+        effect = potionEffect;
 
-        return new DashLegendary(ID, stack);
+        return new EffectGiverLegendary(ID, stack);
     }
 
     @Override
@@ -60,14 +54,7 @@ public class DashLegendary extends Legendary {
             return;
         }
 
-        dash(event.getPlayer());
+        player.addPotionEffect(effect);
         player.setCooldown(key, cooldownTime);
-    }
-
-    protected void dash(Player player) {
-        Vector dir = player.getLocation().getDirection().normalize().multiply(dashHorizontal);
-        dir.setY(dashVertical);
-
-        player.setVelocity(dir);
     }
 }
