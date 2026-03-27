@@ -16,9 +16,9 @@ import java.util.List;
 public class LegendaryRegistry {
     private static final List<Legendary> LEGENDARIES = new ArrayList<>();
 
-    public static final DashLegendary VELOX = registerDashLegendary("velox", Stacks.getVelox(), 500);
-    public static final Legendary REGALIS = registerLegendary("regalis", Stacks.getRegalis());
-    public static final EffectGiverLegendary EXITIUM = registerEffectLegendary("exitium", Stacks.getExitium(), new PotionEffect(PotionEffectType.RESISTANCE, 100, 2), 1200);
+    public static final DashLegendary VELOX = registerDashLegendary("velox", Stacks.VELOX.clone(), 500);
+    public static final Legendary REGALIS = registerLegendary("regalis", Stacks.REGALIS.clone());
+    public static final EffectGiverLegendary EXITIUM = registerEffectLegendary("exitium", Stacks.EXITIUM.clone(), new PotionEffect(PotionEffectType.RESISTANCE, 100, 2), 1200);
 
     private static Legendary registerLegendary(String ID, ItemStack stack) {
         Legendary legendary = new Legendary(ID, stack);
