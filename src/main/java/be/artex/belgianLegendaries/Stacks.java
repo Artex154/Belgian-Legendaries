@@ -1,8 +1,12 @@
 package be.artex.belgianLegendaries;
 
 import be.artex.belgianLegendaries.builder.ItemStackBuilder;
+import io.papermc.paper.datacomponent.DataComponentBuilder;
+import io.papermc.paper.datacomponent.DataComponentType;
 import io.papermc.paper.datacomponent.DataComponentTypes;
+import io.papermc.paper.datacomponent.item.CustomModelData;
 import io.papermc.paper.datacomponent.item.ItemAttributeModifiers;
+import net.kyori.adventure.key.Key;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
@@ -39,6 +43,8 @@ public class Stacks {
                         .addModifier(Attribute.ATTACK_DAMAGE, damageModifier, EquipmentSlotGroup.MAINHAND)
                         .addModifier(Attribute.ATTACK_SPEED, attackSpeedModifier, EquipmentSlotGroup.MAINHAND));
 
+        velox.setData(DataComponentTypes.ITEM_MODEL, Key.key("belgian-legendaries:velox"));
+
         return velox.clone();
     }
 
@@ -69,6 +75,8 @@ public class Stacks {
                         .addModifier(Attribute.ARMOR, armorModifier, EquipmentSlotGroup.HEAD)
                         .addModifier(Attribute.ARMOR_TOUGHNESS, toughnessModifier, EquipmentSlotGroup.HEAD));
 
+        regalis.setData(DataComponentTypes.ITEM_MODEL, Key.key("belgian-legendaries:regalis"));
+
         return regalis.clone();
     }
 
@@ -78,6 +86,8 @@ public class Stacks {
                 .lore(Component.empty(), Component.text(" Right click while sneaking to gain resistance 3 for 5s.", NamedTextColor.GRAY), Component.text("  Cooldown:", NamedTextColor.GRAY).append(Component.text(" 60s", NamedTextColor.YELLOW)).append(Component.text(".", NamedTextColor.GRAY)),
                         Component.empty(), Component.text(" Faites un clique droit en sneakant pour recevoir resistance 3 pour 5s.        ", NamedTextColor.GRAY), Component.text("  Cooldown:", NamedTextColor.GRAY).append(Component.text(" 60s", NamedTextColor.YELLOW)).append(Component.text(".", NamedTextColor.GRAY)))
                 .build();
+
+        exitium.setData(DataComponentTypes.ITEM_MODEL, Key.key("belgian-legendaries:exitium"));
 
         return exitium.clone();
     }
