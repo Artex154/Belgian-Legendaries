@@ -14,6 +14,7 @@ public class ItemStackBuilder {
     private final ItemStack stack;
     private Component name = Component.empty();
     private List<Component> lore = new ArrayList<>();
+    private boolean unbreakable = false;
 
     private ItemStackBuilder(ItemStack stack) {
         this.stack = stack;
@@ -34,6 +35,11 @@ public class ItemStackBuilder {
 
     public ItemStackBuilder name(@NotNull String name) {
         this.name = Component.text(name);
+        return this;
+    }
+
+    public ItemStackBuilder unbreakable(@NotNull boolean unbreakable) {
+        this.unbreakable = unbreakable;
         return this;
     }
 
@@ -69,6 +75,7 @@ public class ItemStackBuilder {
         if (!this.lore.isEmpty())
             meta.lore(lore);
 
+        meta.setUnbreakable(unbreakable);
         this.stack.setItemMeta(meta);
 
         return this.stack;
