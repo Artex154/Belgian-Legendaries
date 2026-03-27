@@ -19,8 +19,8 @@ public class Stacks {
     public static ItemStack getVelox() {
         ItemStack velox = ItemStackBuilder.create(new ItemStack(Material.DIAMOND_SWORD))
                 .name(Component.text("Velox", NamedTextColor.GOLD).decorate(TextDecoration.BOLD, TextDecoration.ITALIC))
-                .lore(Component.empty(), Component.text(" Right click to dash forward!", NamedTextColor.GRAY), Component.text("  Cooldown:", NamedTextColor.GRAY).append(Component.text(" 25s", NamedTextColor.YELLOW)).append(Component.text(".", NamedTextColor.GRAY)),
-                        Component.empty(), Component.text(" Faites un clique droit pour dash en avant!        ", NamedTextColor.GRAY), Component.text("  Cooldown:", NamedTextColor.GRAY).append(Component.text(" 25s", NamedTextColor.YELLOW)).append(Component.text(".", NamedTextColor.GRAY)))
+                .lore(Component.empty(), Component.text(" Right click while sneaking to dash forward!", NamedTextColor.GRAY), Component.text("  Cooldown:", NamedTextColor.GRAY).append(Component.text(" 25s", NamedTextColor.YELLOW)).append(Component.text(".", NamedTextColor.GRAY)),
+                        Component.empty(), Component.text(" Faites un clique droit en sneakant pour dash en avant!        ", NamedTextColor.GRAY), Component.text("  Cooldown:", NamedTextColor.GRAY).append(Component.text(" 25s", NamedTextColor.YELLOW)).append(Component.text(".", NamedTextColor.GRAY)))
                 .build();
 
         AttributeModifier speedModifier = new AttributeModifier(

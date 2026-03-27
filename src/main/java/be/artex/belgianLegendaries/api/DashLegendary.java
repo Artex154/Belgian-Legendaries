@@ -12,8 +12,8 @@ import org.bukkit.util.Vector;
 import java.util.Arrays;
 
 public class DashLegendary extends Legendary {
-    private static float dashHorizontal = 2.9f; // 0.166f = ~1 block
-    private static float dashVertical = 0.4f; // 0.266f = ~1 block
+    private static float dashHorizontal = 1.74f;
+    private static float dashVertical = 0.4f;
     private static int cooldownTime = 20;
 
     private static final Action[] allowedActions = {
@@ -34,7 +34,6 @@ public class DashLegendary extends Legendary {
         return new DashLegendary(ID, stack);
     }
 
-
     public static DashLegendary create(String ID, ItemStack stack, float dashHorizontalMultiplier, float dashVerticalMultiplier, int cooldownTicks) {
         dashHorizontal = dashHorizontalMultiplier;
         dashVertical = dashVerticalMultiplier;
@@ -48,6 +47,9 @@ public class DashLegendary extends Legendary {
         Player player = event.getPlayer();
         Key key = getKey();
         int cooldownTimeLeft = player.getCooldown(key);
+
+        if (!player.isSneaking())
+            return;
 
         if (Arrays.stream(allowedActions).noneMatch(a -> a == event.getAction()))
             return;
