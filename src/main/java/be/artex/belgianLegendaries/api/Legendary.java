@@ -10,7 +10,7 @@ import org.bukkit.persistence.PersistentDataType;
 import org.jetbrains.annotations.NotNull;
 import org.jspecify.annotations.Nullable;
 
-public abstract class Legendary {
+public class Legendary {
     private static final NamespacedKey stackData = new NamespacedKey(Main.instance, "legendary");
 
     private final String ID;

@@ -41,4 +41,34 @@ public class Stacks {
 
         return velox.clone();
     }
+
+    public static ItemStack getRegalis() {
+        ItemStack regalis = ItemStackBuilder.create(new ItemStack(Material.DIAMOND_HELMET))
+                .name(Component.text("Regalis", NamedTextColor.GOLD).decorate(TextDecoration.BOLD, TextDecoration.ITALIC))
+                .lore(Component.empty(), Component.text(" When worn, grants +0.3 attack speed and +2 hearts.", NamedTextColor.GRAY),
+                        Component.empty(), Component.text(" Quand équipé, il confère +0,3 vitesse d'attaque et +2 cœurs!        ", NamedTextColor.GRAY))
+                .build();
+
+        AttributeModifier attackSpeedModifier = new AttributeModifier(
+                ATTRIBUTE_MODIFIER, 0.2f,
+                AttributeModifier.Operation.ADD_NUMBER);
+        AttributeModifier maxHealthModifier = new AttributeModifier(
+                ATTRIBUTE_MODIFIER, 4,
+                AttributeModifier.Operation.ADD_NUMBER);
+        AttributeModifier armorModifier = new AttributeModifier(
+                ATTRIBUTE_MODIFIER, 3,
+                AttributeModifier.Operation.ADD_NUMBER);
+        AttributeModifier toughnessModifier = new AttributeModifier(
+                ATTRIBUTE_MODIFIER, 2,
+                AttributeModifier.Operation.ADD_NUMBER);
+
+        regalis.setData(DataComponentTypes.ATTRIBUTE_MODIFIERS,
+                ItemAttributeModifiers.itemAttributes()
+                        .addModifier(Attribute.ATTACK_SPEED, attackSpeedModifier, EquipmentSlotGroup.HEAD)
+                        .addModifier(Attribute.MAX_HEALTH, maxHealthModifier, EquipmentSlotGroup.HEAD)
+                        .addModifier(Attribute.ARMOR, armorModifier, EquipmentSlotGroup.HEAD)
+                        .addModifier(Attribute.ARMOR_TOUGHNESS, toughnessModifier, EquipmentSlotGroup.HEAD));
+
+        return regalis.clone();
+    }
 }
